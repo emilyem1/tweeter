@@ -1,16 +1,5 @@
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-/*
- * Global layout stuff
- */
-
  /* Main Styling */
-
+ 
 main {
   width: 90%;
 }
@@ -59,4 +48,8 @@ div > button {
 
 div > output {
   font-family: 'Bungee', sans-serif;
+}
+
+.red-text {
+  color: red; /* Red-text class for the counter text */
 }
