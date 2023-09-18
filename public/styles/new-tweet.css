@@ -1,0 +1,62 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+ /* Main Styling */
+
+main {
+  width: 90%;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 70%;
+}
+
+#tweet-text {
+  border: none;
+  outline: none;
+  background-color: #f4f1ec;
+  line-height: 0.8; /* Ensures the placeholder text is at the bottom */
+  resize: none; /* Prevent resizing of the textarea */
+}
+
+#tweet-text::placeholder {
+  font-weight: bold;
+  color: #545149;
+}
+
+form > div {
+  display: flex;
+  justify-content: space-between;
+  border-top: 4px solid #545149;
+  padding-top: 0.5em;
+}
+
+div > button {
+  background-color: #4056A1;
+  font-family: 'Bungee', sans-serif;
+  color: #FFFFFF;
+  border: none;
+  padding: 4px 18px;
+}
+
+div > output {
+  font-family: 'Bungee', sans-serif;
+}
