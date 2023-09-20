@@ -9,13 +9,14 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 40px;
 }
 
 form {
   display: flex;
   flex-direction: column;
   outline: none;
-  width: 70%;
+  width: 90%;
 }
 
 #tweet-text {
