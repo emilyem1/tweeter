@@ -73,6 +73,15 @@ article header {
   justify-content: space-between;
 }
 
+.profile {
+  display: flex;
+}
+
+.profile img {
+  width: 30%;
+  padding-top: 3px;
+}
+
 .username {
   color: silver;
   font-weight: 600;
