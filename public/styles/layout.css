@@ -90,6 +90,7 @@ article header {
 
 .tweet-contents {
   width: 94%;
+  word-wrap: break-word;
 }
 
 article footer {
