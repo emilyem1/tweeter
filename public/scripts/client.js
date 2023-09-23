@@ -1,46 +1,24 @@
-// Wrap code in document.ready so jQuery will work
-$(document).ready(function() {
-
-  const $submitButton = $("#submit-button");
-  $submitButton.on('click', function(event) {
-    event.preventDefault();
-    const formData= $("#tweet-text").serialize(); // Input into textarea 
-    console.log(formData);
-    console.log('Button clicked, performing ajax call...');
-    $.ajax({
-      type: "POST",
-      url: "/tweets",
-      data: formData,
-      success: function() {
-        console.log('AJAX request successful!');
-      },
-      error: function(error) {
-        console.error('AJAX request failed:', error);
-      }
-    });
+const loadTweets = function() {
+  $.ajax({
+    type: "GET",
+    url: "/tweets",
+    success: function(response) {
+      renderTweets(response);
+    },
   });
+};
+loadTweets();
 
-  const loadTweets = function() {
-    $.ajax({
-      type: "GET",
-      url: "/tweets",
-      success: function(response) {
-        renderTweets(response);
-      },
-    });
+const renderTweets = function(tweets) {
+  const $tweetsContainer = $("#tweets-container"); // Target div in html
+  for (const tweet of tweets) {
+    const $tweet = createTweetElement(tweet);
+    $tweetsContainer.append($tweet); // Append the tweet to the container
   }
-  loadTweets();
+};
 
-  const renderTweets = function(tweets) {
-    const $tweetsContainer = $("#tweets-container"); // Target div in html
-    for (const tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $tweetsContainer.append($tweet); // Append the tweet to the container
-    }
-  };
-
-  const createTweetElement = function(tweet) {
-    let $tweet =
+const createTweetElement = function(tweet) {
+  let $tweet =
    `<article>
       <header>
         <div class="profile">
@@ -59,6 +37,33 @@ $(document).ready(function() {
         </div>
       </footer>
     </article>`;
-    return $tweet;
-  };
+  return $tweet;
+};
+
+$(document).ready(function() {
+  const $submitButton = $("#submit-button");
+  $submitButton.on('click', function(event) {
+    event.preventDefault();
+    const formData = $("#tweet-text").serialize(); // The content of the form
+    const tweetText = $("#tweet-text").val(); // The value of the form
+    console.log(formData);
+    if (!tweetText) {
+      alert("Tweet empty, please add text.");
+    } else if (tweetText.length > 140) {
+      alert("You're over the maximum allowed characters.");
+    } else {
+      console.log('Button clicked, performing ajax call...');
+      $.ajax({
+        type: "POST",
+        url: "/tweets",
+        data: formData,
+        success: function() {
+          console.log('AJAX request successful!');
+        },
+        error: function(error) {
+          console.error('AJAX request failed:', error);
+        }
+      });
+    }
+  });
 });
