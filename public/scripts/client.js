@@ -10,10 +10,13 @@ const loadTweets = function() {
 loadTweets();
 
 const renderTweets = function(tweets) {
-  const $tweetsContainer = $("#tweets-container"); // Target div in html
+  // Target div in html
+  const $tweetsContainer = $("#tweets-container"); 
+  /* Sort the tweets by 'created_at' property in descending order. If 'a' is positive it's newer, if 'a' is negative it's older. */
+  tweets.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
-    $tweetsContainer.append($tweet); // Append the tweet to the container
+    $tweetsContainer.append($tweet); // Puts the tweet, now in html, into div
   }
 };
 
@@ -59,6 +62,7 @@ $(document).ready(function() {
         data: formData,
         success: function() {
           console.log('AJAX request successful!');
+          location.reload();
         },
         error: function(error) {
           console.error('AJAX request failed:', error);
