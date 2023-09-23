@@ -40,10 +40,6 @@ $(document).ready(function() {
   };
 
   const createTweetElement = function(tweet) {
-    // Create a readable date
-    const createdDate = new Date(tweet.created_at);
-    // Convert date to local timezone
-    const formattedDate = createdDate.toLocaleString(); 
     let $tweet =
    `<article>
       <header>
@@ -55,7 +51,7 @@ $(document).ready(function() {
       </header>
       <p class="tweet-contents">${tweet.content.text}</p>
       <footer>
-        <p>${formattedDate}</p>
+        <p>${timeago.format(tweet.created_at)}</p>
         <div>
           <i class="fa-solid fa-flag"></i>
           <i class="fa-solid fa-retweet"></i>
