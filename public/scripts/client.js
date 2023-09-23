@@ -1,35 +1,35 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 // Wrap code in document.ready so jQuery will work
 $(document).ready(function() {
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "/images/newton.png"
-        ,
-        "handle": "@SirIsaac"
+
+  const $submitButton = $("#submit-button");
+  $submitButton.on('click', function(event) {
+    event.preventDefault();
+    const formData= $("#tweet-text").serialize(); // Input into textarea 
+    console.log(formData);
+    console.log('Button clicked, performing ajax call...');
+    $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data: formData,
+      success: function() {
+        console.log('AJAX request successful!');
       },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
+      error: function(error) {
+        console.error('AJAX request failed:', error);
+      }
+    });
+  });
+
+  const loadTweets = function() {
+    $.ajax({
+      type: "GET",
+      url: "/tweets",
+      success: function(response) {
+        renderTweets(response);
       },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "/images/descartes.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
+    });
+  }
+  loadTweets();
 
   const renderTweets = function(tweets) {
     const $tweetsContainer = $("#tweets-container"); // Target div in html
@@ -65,25 +65,4 @@ $(document).ready(function() {
     </article>`;
     return $tweet;
   };
-
-  renderTweets(data);
-
-  const $submitButton = $("#submit-button");
-  $submitButton.on('click', function(event) {
-    event.preventDefault();
-    const formData= $("#tweet-text").serialize(); // Input into textarea 
-    console.log(formData);
-    console.log('Button clicked, performing ajax call...');
-    $.ajax({
-      type: "POST",
-      url: "/tweets",
-      data: formData,
-      success: function(response) {
-        console.log('AJAX request successful:', response);
-      },
-      error: function(error) {
-        console.error('AJAX request failed:', error);
-      }
-    });
-  });
 });
