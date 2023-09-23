@@ -32,12 +32,11 @@ $(document).ready(function() {
   ];
 
   const renderTweets = function(tweets) {
-    const $tweetsContainer = $("#tweets-container"); // target div in html
+    const $tweetsContainer = $("#tweets-container"); // Target div in html
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
       $tweetsContainer.append($tweet); // Append the tweet to the container
     }
-    console.log("Tweets rendered successfully!"); // Test code
   };
 
   const createTweetElement = function(tweet) {
@@ -68,4 +67,23 @@ $(document).ready(function() {
   };
 
   renderTweets(data);
+
+  const $submitButton = $("#submit-button");
+  $submitButton.on('click', function(event) {
+    event.preventDefault();
+    const formData= $("#tweet-text").serialize(); // Input into textarea 
+    console.log(formData);
+    console.log('Button clicked, performing ajax call...');
+    $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data: formData,
+      success: function(response) {
+        console.log('AJAX request successful:', response);
+      },
+      error: function(error) {
+        console.error('AJAX request failed:', error);
+      }
+    });
+  });
 });
