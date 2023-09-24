@@ -32,7 +32,7 @@
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
+    <!-- Nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
       <div class="right-nav">
@@ -56,6 +56,16 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
+        <!-- Error -->
+        <section class="error">
+          <h3 id="no-text">
+            Tweet empty, please add text!
+          </h3>
+          <h3 id="max-limit">
+            You're over the maximum allowed characters!
+          </h3>
+        </section>
+        <!-- Form -->
         <form action="/tweets" method="POST"> <!-- Specify action and method -->
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div>
@@ -85,6 +95,7 @@
         </div>
       </footer>
     </article>
-    <div id="tweets-container"></div> <!-- For client.js to populate -->
+    <!-- New Tweets for client.js to populate -->
+    <div id="tweets-container"></div> 
   </body>
 </html>
