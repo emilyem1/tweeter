@@ -20,17 +20,24 @@ const renderTweets = function(tweets) {
   }
 };
 
+// Prevent XSS with escaping
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = function(tweet) {
   let $tweet =
    `<article>
       <header>
         <div class="profile">
           <img src="${tweet.user.avatars}" alt="profile image"> 
-          <p>${tweet.user.name}</p>
+          <p>${escape(tweet.user.name)}</p>
         </div>
-        <p class="username">${tweet.user.handle}</p>
+        <p class="username">${escape(tweet.user.handle)}</p>
       </header>
-      <p class="tweet-contents">${tweet.content.text}</p>
+      <p class="tweet-contents">${escape(tweet.content.text)}</p>
       <footer>
         <p>${timeago.format(tweet.created_at)}</p>
         <div>
