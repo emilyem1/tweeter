@@ -58,10 +58,13 @@ $(document).ready(function() {
     const tweetText = $("#tweet-text").val(); // The value of the form
     console.log(formData);
     if (!tweetText) {
-      alert("Tweet empty, please add text.");
+      $("#max-limit").slideUp(); // Hide previous error messages 
+      $("#no-text").slideDown();
     } else if (tweetText.length > 140) {
-      alert("You're over the maximum allowed characters.");
+      $("#no-text").slideUp(); 
+      $("#max-limit").slideDown();
     } else {
+      $("#no-text, #max-limit").slideUp(); 
       console.log('Button clicked, performing ajax call...');
       $.ajax({
         type: "POST",
