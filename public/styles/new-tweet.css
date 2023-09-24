@@ -19,6 +19,24 @@ form {
   width: 90%;
 }
 
+h2 {
+  margin-bottom: 0.5em;
+}
+
+.error {
+  padding-bottom: 0.5em;
+}
+
+#no-text,
+#max-limit {
+  display: none;
+  color: red;
+  font-size: 0.7em;
+  padding: 0.5em;
+  margin: 0;
+  border: red solid 2px;
+}
+
 #tweet-text {
   border: none;
   outline: none;
