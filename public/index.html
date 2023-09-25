@@ -13,9 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/article.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -74,28 +76,9 @@
           </div>
         </form>
       </section>      
-    </main>   
-
-    <!-- Article -->
-    <article>
-      <header>
-        <div class="profile">
-          <img src="/images/profile-hex.png" alt="profile image"> 
-          <p>Emily</p>
-        </div>
-        <p class="username">@EmilyM</p>
-      </header>
-      <p class="tweet-contents">I feel pretty, Oh, so pretty, I feel pretty and witty and bright! And I pity any girl who isn't me tonight.</p>
-      <footer>
-        <p>10 days ago</p>
-        <div>
-          <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-retweet"></i>
-          <i class="fa-solid fa-heart"></i>
-        </div>
-      </footer>
-    </article>
-    <!-- New Tweets for client.js to populate -->
+    </main> 
+    
+    <!-- Container to populate with tweets from client.js -->
     <div id="tweets-container"></div> 
   </body>
 </html>
