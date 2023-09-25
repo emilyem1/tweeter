@@ -1,3 +1,4 @@
+// loadTweets function
 const loadTweets = function() {
   $.ajax({
     type: "GET",
@@ -9,6 +10,7 @@ const loadTweets = function() {
 };
 loadTweets();
 
+//renderTweets function
 const renderTweets = function(tweets) {
   // Target div in html
   const $tweetsContainer = $("#tweets-container"); 
@@ -16,17 +18,19 @@ const renderTweets = function(tweets) {
   tweets.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
-    $tweetsContainer.append($tweet); // Puts the tweet, now in html, into div
+    // Puts the tweet, now in html, into the div
+    $tweetsContainer.append($tweet);
   }
 };
 
-// Prevent XSS with escaping
+// escape function to prevent XSS 
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+// createTweetElement function to fill article element with tweet object
 const createTweetElement = function(tweet) {
   let $tweet =
    `<article>
@@ -50,13 +54,16 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
+// Following wrapped in (document).ready to execute jQuery/AJAX
 $(document).ready(function() {
   const $submitButton = $("#submit-button");
+
   $submitButton.on('click', function(event) {
     event.preventDefault();
     const formData = $("#tweet-text").serialize(); // The content of the form
     const tweetText = $("#tweet-text").val(); // The value of the form
     console.log(formData);
+    
     if (!tweetText) {
       $("#max-limit").slideUp(); // Hide previous error messages 
       $("#no-text").slideDown();
