@@ -42,43 +42,44 @@
         <i class="fa-solid fa-angles-down"></i>
       </div>
     </nav>
-
-    <!-- Header -->
-    <header>
-      <div>
+    <section id="break-point">
+        <!-- Header -->
+      <header>
+        <div>
           <img src="/images/profile-hex.png" alt="profile image"> 
-      </div>
-      <br>
-      <div>
+        </div>
+        <br>
+        <div>
           <h2>Emily McMahon</h2>
-      </div>
-    </header>
-
-    <!-- Main -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <!-- Error -->
-        <section class="error">
-          <h3 id="no-text">
-            Tweet empty, please add text!
-          </h3>
-          <h3 id="max-limit">
-            You're over the maximum allowed characters!
-          </h3>
-        </section>
-        <!-- Form -->
-        <form action="/tweets" method="POST"> <!-- Specify action and method -->
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          <div>
-            <button id="submit-button" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>      
-    </main> 
-    
-    <!-- Container to populate with tweets from client.js -->
-    <div id="tweets-container"></div> 
+        </div>
+      </header>
+      <section id="tweet-area">
+        <!-- Main -->
+        <main class="container">
+          <section class="new-tweet">
+            <h2>Compose Tweet</h2>
+            <!-- Error -->
+            <section class="error">
+              <h3 id="no-text">
+                Tweet empty, please add text!
+              </h3>
+              <h3 id="max-limit">
+                You're over the maximum allowed characters!
+              </h3>
+            </section>
+            <!-- Form -->
+            <form action="/tweets" method="POST"> 
+              <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+              <div>
+                <button id="submit-button" type="submit">Tweet</button>
+                <output name="counter" class="counter" for="tweet-text">140</output>
+              </div>
+            </form>
+          </section>      
+        </main>
+        <!-- Container to populate with tweets from client.js -->
+        <div id="tweets-container"></div>
+      </section> 
+    </section>  
   </body>
 </html>
