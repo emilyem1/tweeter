@@ -6,6 +6,14 @@ The starter code was built on another repository. The code was then built upon t
 
 The tweets can be created via form, and have a max of 140 char. There is error handling present for invalid tweets. The tweets are displayed newest to oldest. The layout is responive, having three seperate designs for desktop, tablet and mobile breakpoints.
 
+## Desktop Layout
+![Screenshot of the desktop layout](https://github.com/emilyem1/tweeter/blob/master/public/images/desktop-layout.png) 
+
+## Tablet Layout
+![Screenshot of the tablet layout](https://github.com/emilyem1/tweeter/blob/master/public/images/tablet-layout.png) 
+
+## Mobile Layout
+![Screenshot of the mobile layout](https://github.com/emilyem1/tweeter/blob/master/public/images/mobile-layout.png) 
 ## Getting Started
 
 1. Clone the repository onto your local device.
