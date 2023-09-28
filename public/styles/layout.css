@@ -22,6 +22,16 @@ body {
   align-items: center;
 }
 
+#break-point {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+#tweet-area {
+  width: 100vw;
+}
+
 /* Tweet Container styling */
 
 #tweets-container {
@@ -32,34 +42,76 @@ body {
   align-items: center;
 }
 
+/* Media Break Point - for mobile */
+
+@media only screen and (max-width: 767px) {
+  body > nav {
+    background-color: #4056a1;
+    background-image: url(http://www.transparenttextures.com/patterns/diagmonds.png);
+    height: 35%;
+    flex-direction: column;
+  }
+
+  #top-nav {
+    margin-top: 5%;
+  }
+
+ nav > #small-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+  }
+
+  #small-header > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div > img {
+    width: 60%;
+  }
+
+  div > h2 {
+    font-size: 1em;
+  }
+
+  body > #break-point > header {
+    display: none;
+  }
+
+  .new-tweet {
+    margin-top: 45%;
+  }
+
+  .new-tweet > h2 {
+    display: none;
+  }
+}
+
 /* Media Break Point - for desktop */
 
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 1024px) {
   #break-point {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 100vw;
   }
 
-  #break-point > header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  body > #break-point > header {
     justify-content: center;
     align-self: flex-start;
-    color: #FFFFFF;
+    height: 0%;
     width: 25%;
     margin-top: 14%;
     margin-left: 3%;
     padding-top: 2%;
-    background-color: #4056a1;
-    background-image: url(http://www.transparenttextures.com/patterns/diagmonds.png);
   }
 
   div > h2 {
     margin-top: 0%;
-    margin-bottom: 20%;
     font-size: 1.2em;
   }
 
@@ -73,5 +125,4 @@ body {
     margin-top: 14%;
     width: 60%;
   }
-
 }
