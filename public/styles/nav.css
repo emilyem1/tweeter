@@ -1,5 +1,4 @@
 /* Nav Styling */
-
 nav {
   height: 120px;
   width: 100vw;
@@ -7,7 +6,6 @@ nav {
   color: #FFFFFF;
   padding: 0 1.5em;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   position: fixed;
 }
@@ -24,4 +22,15 @@ nav {
 
 .right-nav .fa-solid {
   color: #FFFFFF;
+}
+
+#top-nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#small-header {
+  display: none;
 }
