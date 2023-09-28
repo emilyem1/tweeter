@@ -36,19 +36,29 @@
   <body>
     <!-- Nav bar (fixed) -->
     <nav>
-      <span class="logo">tweeter</span>
-      <div class="right-nav">
-        <span><strong>Write</strong> a new tweet</span>
-        <i class="fa-solid fa-angles-down"></i>
+      <div id="top-nav">
+        <span class="logo">tweeter</span>
+        <div class="right-nav">
+          <span><strong>Write</strong> a new tweet</span>
+          <i class="fa-solid fa-angles-down"></i>
+        </div>
+      </div>
+      <!-- Small header for mobile breakpoint -->
+      <div id="small-header">
+        <div>
+          <img src="/images/profile-hex.png" alt="profile image"> 
+        </div>
+        <div>
+          <h2>Emily McMahon</h2>
+        </div>
       </div>
     </nav>
     <section id="break-point">
-        <!-- Header -->
+      <!-- Header -->
       <header>
         <div>
           <img src="/images/profile-hex.png" alt="profile image"> 
         </div>
-        <br>
         <div>
           <h2>Emily McMahon</h2>
         </div>
@@ -67,7 +77,7 @@
                 You're over the maximum allowed characters!
               </h3>
             </section>
-            <!-- Form -->
+            <!-- Tweet Form -->
             <form action="/tweets" method="POST"> 
               <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
               <div>
